@@ -31,9 +31,8 @@ class LossAndDerivatives:
 
         Comment: If Y is two-dimentional, average the error over both dimentions.
         """
-
-        # YOUR CODE HERE    
-        return 
+ 
+        return np.mean(np.abs(X.dot(w) - Y))
 
     @staticmethod
     def l2_reg(w):
@@ -46,8 +45,7 @@ class LossAndDerivatives:
         Computes the L2 regularization term for the weight matrix w.
         """
         
-        # YOUR CODE HERE
-        return 
+        return np.sum(np.square(w))
 
     @staticmethod
     def l1_reg(w):
@@ -60,8 +58,7 @@ class LossAndDerivatives:
         Computes the L1 regularization term for the weight matrix w.
         """
 
-        # YOUR CODE HERE
-        return 
+        return np.sum(np.abs(w))
 
     @staticmethod
     def no_reg(w):
@@ -86,8 +83,7 @@ class LossAndDerivatives:
         dimension as well, so you need to consider that fact in derivative implementation.
         """
 
-        # YOUR CODE HERE
-        return 
+        return 2 * X.T.dot(X.dot(w) - Y) / Y.size
 
     @staticmethod
     def mae_derivative(X, Y, w):
@@ -105,8 +101,7 @@ class LossAndDerivatives:
         dimension as well, so you need to consider that fact in derivative implementation.
         """
 
-        # YOUR CODE HERE
-        return 
+        return X.T.dot(np.sign(X.dot(w) - Y)) / Y.size
 
     @staticmethod
     def l2_reg_derivative(w):
@@ -118,13 +113,11 @@ class LossAndDerivatives:
         Computes the L2 regularization term derivative w.r.t. the weight matrix w.
         """
 
-        # YOUR CODE HERE
-        return 
+        return 2 * w
 
     @staticmethod
     def l1_reg_derivative(w):
         """
-        Y : numpy array of shape (`n_observations`, `target_dimentionality`) or (`n_observations`,)
         w : numpy array of shape (`n_features`, `target_dimentionality`) or (`n_features`,)
 
         Return : numpy array of same shape as `w`
@@ -132,8 +125,7 @@ class LossAndDerivatives:
         Computes the L1 regularization term derivative w.r.t. the weight matrix w.
         """
 
-        # YOUR CODE HERE
-        return 
+        return np.sign(w)
 
     @staticmethod
     def no_reg_derivative(w):
